@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Introdução · Professores em Ação</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="app">
+
+    <header class="topo">
+      <h1 class="topo__titulo">Professores em Ação</h1>
+      <nav class="topo__acoes" aria-label="Conta">
+        <a href="index.html">Sair</a>
+        <a href="#">Perfil</a>
+      </nav>
+    </header>
+
+    <div class="corpo">
+
+      <nav class="menu" aria-label="Conteúdos">
+        <h2 class="menu__titulo">Conteúdos</h2>
+        <ul class="menu__lista">
+          <li><a class="menu__item" href="painel.html" aria-current="page">Introdução</a></li>
+          <li><button class="menu__item" type="button" id="abrir-areas">Variáveis</button></li>
+          <li><a class="menu__item" href="#">Algoritmos</a></li>
+          <li><a class="menu__item" href="#">Strings</a></li>
+          <li><a class="menu__item" href="#">Iteração</a></li>
+          <li><a class="menu__item" href="#">Função</a></li>
+        </ul>
+      </nav>
+
+      <main class="conteudo">
+        <h2 class="conteudo__titulo">Introdução</h2>
+        <div class="conteudo__texto">
+          <p>Bem-vindo! Aqui você aprende lógica de programação com exemplos da sua área de ensino.</p>
+          <p>Programar é dar instruções claras a um computador, passo a passo, como num plano de aula bem detalhado.</p>
+          <p>Escolha um conteúdo no menu para começar e use os exercícios ao lado para praticar.</p>
+        </div>
+      </main>
+
+      <aside class="exercicios" aria-label="Exercícios">
+        <h2 class="exercicios__titulo">Exercícios</h2>
+        <ul class="exercicios__lista">
+          <li><a href="#">Exercício 1</a></li>
+          <li><a href="#">Exercício 2</a></li>
+          <li><a href="#">Exercício 3</a></li>
+        </ul>
+      </aside>
+
+    </div>
+  </div>
+
+  <!-- Seleção de área específica -->
+  <dialog class="dialogo" id="dialogo-area">
+    <form method="dialog">
+      <h2 class="dialogo__titulo">Área específica</h2>
+      <p class="dialogo__ajuda">Escolha sua área para ver exemplos adaptados.</p>
+      <fieldset>
+        <label class="opcao"><input type="checkbox" name="area" value="Português"> Português</label>
+        <label class="opcao"><input type="checkbox" name="area" value="Filosofia"> Filosofia</label>
+        <label class="opcao"><input type="checkbox" name="area" value="História"> História</label>
+        <label class="opcao"><input type="checkbox" name="area" value="Artes"> Artes</label>
+        <label class="opcao"><input type="checkbox" name="area" value="Matemática"> Matemática</label>
+        <label class="opcao"><input type="checkbox" name="area" value="Música"> Música</label>
+        <label class="opcao"><input type="checkbox" name="area" value="Biologia"> Biologia</label>
+        <label class="opcao"><input type="checkbox" name="area" value="Química"> Química</label>
+        <label class="opcao"><input type="checkbox" name="area" value="Geografia"> Geografia</label>
+        <label class="opcao"><input type="checkbox" name="area" value="Física"> Física</label>
+      </fieldset>
+      <div class="dialogo__acoes">
+        <button class="botao botao--secundario" value="cancelar">Cancelar</button>
+        <button class="botao" value="continuar">Continuar</button>
+      </div>
+    </form>
+  </dialog>
+
+  <script>
+    var dialogo = document.getElementById("dialogo-area");
+
+    document.getElementById("abrir-areas").addEventListener("click", function () {
+      dialogo.showModal();
+    });
+
+    dialogo.addEventListener("close", function () {
+      if (dialogo.returnValue !== "continuar") return;
+      var areas = Array.from(dialogo.querySelectorAll("input:checked")).map(function (i) { return i.value; });
+      try { sessionStorage.setItem("areas", JSON.stringify(areas)); } catch (e) {}
+      window.location.href = "variaveis.html";
+    });
+  </script>
+</body>
+</html>
