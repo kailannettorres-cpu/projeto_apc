@@ -1,0 +1,218 @@
+/* ==========================================================
+   Professores em Ação — login.css
+   Tela de login refeita a partir do esboço.
+   ========================================================== */
+
+@import url("https://fonts.googleapis.com/css2?family=Caveat:wght@500;700&family=Source+Sans+3:wght@400;600&display=swap");
+
+:root {
+  --fundo: #e8e9e8;
+  --tinta: #15211a;
+  --verde: #1a6b3c;
+  --verde-escuro: #124d2b;
+  --azul: #0b2a9a;
+  --desenho: #c3cdc6;
+
+  --fonte-manuscrita: "Caveat", "Segoe Print", cursive;
+  --fonte-texto: "Source Sans 3", "Segoe UI", system-ui, sans-serif;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  height: 100%;
+  margin: 0;
+}
+
+body {
+  background: var(--fundo);
+  color: var(--tinta);
+  font-family: var(--fonte-texto);
+  font-size: 1.0625rem;
+  line-height: 1.5;
+}
+
+:focus-visible {
+  outline: 3px solid var(--azul);
+  outline-offset: 3px;
+}
+
+/* ---------- Estrutura: texto à esquerda, cartão à direita ---------- */
+.login {
+  position: relative;
+  min-height: 100vh;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(320px, 410px);
+  align-items: center;
+  column-gap: clamp(2rem, 8vw, 8rem);
+  padding: clamp(2rem, 6vh, 5rem) clamp(1.5rem, 9vw, 8rem);
+  overflow: hidden;
+}
+
+/* ---------- Lado esquerdo ---------- */
+.boas-vindas {
+  position: relative;
+  z-index: 1;
+  align-self: start;
+  padding-top: clamp(0rem, 4vh, 3rem);
+}
+
+.boas-vindas__titulo {
+  margin: 0;
+  font-family: var(--fonte-manuscrita);
+  font-weight: 500;
+  font-size: clamp(4rem, 11vw, 8.5rem);
+  line-height: 1;
+  color: var(--verde);
+}
+
+.boas-vindas__nome {
+  margin: 1.5rem 0 0 clamp(0rem, 3vw, 2.5rem);
+  max-width: 7em;
+  font-family: var(--fonte-manuscrita);
+  font-weight: 500;
+  font-size: clamp(2.4rem, 5vw, 4rem);
+  line-height: 1.1;
+  color: var(--verde);
+}
+
+/* Desenho de fundo (espaço indicado no esboço) */
+.fundo {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: min(62%, 780px);
+  height: auto;
+  color: var(--desenho);
+  pointer-events: none;
+}
+
+/* ---------- Cartão de login ---------- */
+.cartao {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  min-height: min(505px, 80vh);
+  padding: 2.25rem 3.75rem 2rem;
+  border: 1.5px dotted var(--verde);
+  background: transparent;
+}
+
+.cartao__titulo {
+  margin: 0 0 auto;
+  text-align: center;
+  font-family: var(--fonte-manuscrita);
+  font-weight: 500;
+  font-size: 3rem;
+  line-height: 1;
+  color: var(--verde);
+}
+
+.campo {
+  display: block;
+  margin-top: 2.5rem;
+}
+
+.campo__rotulo {
+  display: block;
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--azul);
+}
+
+.campo__entrada {
+  width: 100%;
+  padding: 0.45rem 0;
+  border: 0;
+  border-bottom: 1.5px solid var(--verde);
+  border-radius: 0;
+  background: transparent;
+  color: var(--tinta);
+  font: inherit;
+}
+
+.campo__entrada:focus {
+  outline: none;
+  border-bottom-color: var(--azul);
+  box-shadow: 0 1.5px 0 var(--azul);
+}
+
+.botao {
+  align-self: center;
+  width: 9rem;
+  margin-top: 3.5rem;
+  padding: 0.85rem 1rem;
+  border: 0;
+  border-radius: 14px;
+  background: var(--verde);
+  color: #fff;
+  font: 600 1rem var(--fonte-texto);
+  cursor: pointer;
+  transition: background 0.15s;
+}
+
+.botao:hover {
+  background: var(--verde-escuro);
+}
+
+.cartao__alternativa {
+  margin: 0.6rem 0 0;
+  text-align: center;
+  font-size: 0.9rem;
+  color: var(--azul);
+}
+
+.cartao__alternativa a {
+  display: block;
+  margin-top: 0.15rem;
+  color: var(--azul);
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.cartao__alternativa a:hover {
+  text-decoration: underline;
+}
+
+/* ---------- Telas pequenas ---------- */
+@media (max-width: 820px) {
+  .login {
+    grid-template-columns: minmax(0, 1fr);
+    row-gap: 2.5rem;
+    padding: 2rem 1.25rem;
+  }
+
+  .boas-vindas {
+    padding-top: 0;
+  }
+
+  .cartao {
+    min-height: 0;
+    padding: 2rem 1.5rem;
+  }
+
+  .cartao__titulo {
+    margin-bottom: 0;
+  }
+
+  .botao {
+    margin-top: 2.5rem;
+  }
+
+  .fundo {
+    width: 100%;
+    opacity: 0.6;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * {
+    transition: none !important;
+  }
+}
