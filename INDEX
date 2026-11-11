@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Professores em Ação</title>
+  <link rel="stylesheet" href="login.css">
+</head>
+<body>
+  <main class="login">
+
+    <section class="boas-vindas">
+      <h1 class="boas-vindas__titulo">Welcome</h1>
+      <p class="boas-vindas__nome">Professores em Ação</p>
+    </section>
+
+    <!-- Espaço do "desenho de fundo": troque este SVG por sua arte -->
+    <svg class="fundo" viewBox="0 0 640 300" fill="none" stroke="currentColor"
+         stroke-width="6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+      <path d="M90 60c-28 0-34 14-34 36v20c0 14-8 22-24 24 16 2 24 10 24 24v20c0 22 6 36 34 36"/>
+      <path d="M250 60c28 0 34 14 34 36v20c0 14 8 22 24 24-16 2-24 10-24 24v20c0 22-6 36-34 36"/>
+      <path d="M130 120l-18 30 18 30M210 120l18 30-18 30"/>
+      <path d="M185 112l-20 76"/>
+      <circle cx="400" cy="90" r="9" fill="currentColor" stroke="none"/>
+      <circle cx="440" cy="90" r="9" fill="currentColor" stroke="none"/>
+      <circle cx="480" cy="90" r="9" fill="currentColor" stroke="none"/>
+      <circle cx="400" cy="150" r="9" fill="currentColor" stroke="none"/>
+      <circle cx="440" cy="150" r="9" fill="currentColor" stroke="none"/>
+      <circle cx="400" cy="210" r="9" fill="currentColor" stroke="none"/>
+      <circle cx="440" cy="210" r="9" fill="currentColor" stroke="none"/>
+      <circle cx="480" cy="210" r="9" fill="currentColor" stroke="none"/>
+      <circle cx="520" cy="210" r="9" fill="currentColor" stroke="none"/>
+    </svg>
+
+    <form class="cartao" id="form-login">
+      <h2 class="cartao__titulo">Login</h2>
+
+      <label class="campo">
+        <span class="campo__rotulo">Email</span>
+        <input class="campo__entrada" type="email" name="email" autocomplete="email" required>
+      </label>
+
+      <label class="campo">
+        <span class="campo__rotulo">Password</span>
+        <input class="campo__entrada" type="password" name="password" autocomplete="current-password" required>
+      </label>
+
+      <button class="botao" type="submit">Login</button>
+
+      <p class="cartao__alternativa">
+        ou
+        <a href="#">Sign up</a>
+      </p>
+    </form>
+
+  </main>
+  <script>
+    // Simulação: vai direto ao painel. A autenticação real exige um serviço externo.
+    document.getElementById("form-login").addEventListener("submit", function (e) {
+      e.preventDefault();
+      window.location.href = "painel.html";
+    });
+  </script>
+</body>
+</html>
