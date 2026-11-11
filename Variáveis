@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Variáveis · Professores em Ação</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="app">
+
+    <header class="topo">
+      <h1 class="topo__titulo">Professores em Ação</h1>
+      <nav class="topo__acoes" aria-label="Conta">
+        <a href="index.html">Sair</a>
+        <a href="#">Perfil</a>
+      </nav>
+    </header>
+
+    <div class="corpo">
+
+      <nav class="menu" aria-label="Conteúdos">
+        <h2 class="menu__titulo">Conteúdos</h2>
+        <ul class="menu__lista">
+          <li><a class="menu__item" href="painel.html">Introdução</a></li>
+          <li><a class="menu__item" href="variaveis.html" aria-current="page">Variáveis</a></li>
+          <li><a class="menu__item" href="#">Algoritmos</a></li>
+          <li><a class="menu__item" href="#">Strings</a></li>
+          <li><a class="menu__item" href="#">Iteração</a></li>
+          <li><a class="menu__item" href="#">Função</a></li>
+        </ul>
+      </nav>
+
+      <main class="conteudo">
+        <h2 class="conteudo__titulo">Variáveis</h2>
+        <div class="conteudo__texto">
+          <p id="areas-escolhidas" hidden></p>
+          <p>Uma variável guarda um valor com um nome, por exemplo <code>nota = 8.5</code>.</p>
+          <p>Depois, você usa o nome em vez de repetir o valor. Se a nota mudar, basta alterar em um só lugar.</p>
+          <p>Exemplo: <code>aluno = "Ana"</code> e <code>faltas = 3</code>.</p>
+        </div>
+      </main>
+
+      <aside class="exercicios" aria-label="Exercícios">
+        <h2 class="exercicios__titulo">Exercícios</h2>
+        <ul class="exercicios__lista">
+          <li><a href="#">Exercício 1</a></li>
+          <li><a href="#">Exercício 2</a></li>
+          <li><a href="#">Exercício 3</a></li>
+        </ul>
+      </aside>
+
+    </div>
+  </div>
+
+  <script>
+    try {
+      var areas = JSON.parse(sessionStorage.getItem("areas") || "[]");
+      if (areas.length) {
+        var p = document.getElementById("areas-escolhidas");
+        p.textContent = "Exemplos adaptados para: " + areas.join(", ") + ".";
+        p.hidden = false;
+      }
+    } catch (e) {}
+  </script>
+</body>
+</html>
